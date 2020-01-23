@@ -14,8 +14,13 @@ function validateForm(e) {
   console.log("email: " + validateEmail());
   console.log("password: " + validatePassword());
 
-  if (validateUsername() && validateEmail() && validatePassword() && validateFirstName() && validateLastName() && validatePhoneNumber()) {
-    var _newUser = getUserName();
+  if (validateUsername() && validateFirstName() && validateLastName() && validatePhoneNumber() && validateEmail() && validatePassword()) {
+    var _newUser = [getUserName(), getEmail(), getPassword()];
+    //changed above
+
+    function getInputValue() {
+      var inputVal = document.getElementById("myInput").value;
+    }
 
     // add code to update registeredUsers array with new user and call render function
     // TODO
@@ -24,10 +29,6 @@ function validateForm(e) {
     document.registration.reset(); // reset form input fields
   }
 
-  // to remove the oldest user
-  if (registeredUsers.length > 5) {
-    registeredUsers.shift();
-  }
 
 }
 
@@ -36,6 +37,12 @@ function renderRegisteredUsers() {
     var _newUser = document.createElement("li");
     _newUser.innerHTML = registeredUser;
     document.getElementById("registered-users").appendChild(_newUser);
+
+    // ??to remove the oldest user
+    if (registeredUsers.length > 5) {
+      registeredUsers.shift();
+    }
+    // questions. 
   });
 }
 
@@ -90,7 +97,11 @@ function validatePassword() {
   var _password = getPassword();
   var _confirmPassword = getConfirmPassword();
 
-  if (_password !== _confirmPassword) {
+  if (_password.search[/A-Z/] < 0) {
+    return false;
+  }
+
+  if (_password.search[/0-9/] < 0) {
     return false;
   }
 
@@ -98,14 +109,9 @@ function validatePassword() {
     return false;
   }
 
-  if (_password.search[/A-Z/i] < 1) {
+  if (_password !== _confirmPassword) {
     return false;
   }
-
-  if (_password.search[/0-9/] < 1) {
-    return false;
-  }
-
 
   return true;
 }
