@@ -33,6 +33,8 @@ function validateForm(e) {
 }
 
 function renderRegisteredUsers() {
+  document.getElementById("registered-users").innerHTML = '';
+
   registeredUsers.forEach(function (registeredUser) {
     var _newUser = document.createElement("li");
     _newUser.innerHTML = registeredUser;
@@ -42,7 +44,7 @@ function renderRegisteredUsers() {
     if (registeredUsers.length > 5) {
       registeredUsers.shift();
     }
-    // questions. 
+    // questions.
   });
 }
 
