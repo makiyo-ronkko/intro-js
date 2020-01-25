@@ -14,6 +14,7 @@ function calculate(order) {
   }
 
   document.getElementById('final-result').innerText = result;
+
 }
 
 function add(a, b) {
@@ -33,9 +34,18 @@ function divide(a, b) {
 }
 
 function myFunctionPi() {
-  document.getElementById("test").innerHTML = Math.PI;
+  document.getElementById('test').innerHTML = Math.PI;
 }
 
-function myFunctionPow(a, b) {
-  document.getElementById("test2")
+function myFunctionPow() {
+  var firstInput = parseInt(document.getElementById('firstinput').value);
+  var secondInput = parseInt(document.getElementById('secondinput').value);
+
+  document.getElementById('test2').innerHTML = Math.pow(firstInput, secondInput);
+
+}
+
+function myFunctionSqrt() {
+  var result = document.getElementById('final-result').innerText;
+  document.getElementById('test3').innerHTML = Math.sqrt(result);
 }
