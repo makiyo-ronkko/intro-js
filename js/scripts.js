@@ -15,7 +15,7 @@ function validateForm(e) {
   console.log("password: " + validatePassword());
 
   //if (validateUsername() && validateFirstName() && validateLastName() && validatePhoneNumber() && validateEmail() && validatePassword()) {
-  // var _newUser = getUserName();
+  //var _newUser = getUserName();
 
   //function getInputValue() {
   // var inputVal = document.getElementById("myInput").value;
@@ -54,8 +54,8 @@ function getUserDataObj() {
     lastName: getLastName(),
     email: getEmail(),
     phoneNumber: getPhoneNumber(),
-    password: getPassword(),
-    confirmPassword: getConfirmPassword()
+    //password: getPassword(),
+    //confirmPassword: getConfirmPassword()
   };
 }
 
@@ -66,7 +66,6 @@ function renderRegisteredUsers() {
     var _newUser = document.createElement("li");
     _newUser.innerHTML = JSON.stringify(registeredUser);
     document.getElementById("registered-users").appendChild(_newUser);
-    console.log(newUser[0], newUser[1], newUser[2], newUser[3], newUser[4]);
   });
 }
 
