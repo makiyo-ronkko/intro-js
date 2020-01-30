@@ -6,11 +6,15 @@
 
   // Set event listeners
   function setEventListeners() {
-    var next = document.getElementsByClassName('slider__button--next')[0],
-      prev = document.getElementsByClassName('slider__button--prev')[0];
+    //var next = document.getElementsByClassName('slider__button--next')[0],
+    //prev = document.getElementsByClassName('slider__button--prev')[0];
+    next = $('.slider__button--next')[0]
+    prev = $('.slider__button--prev')[0]
 
-    next.addEventListener('click', getNext);
-    prev.addEventListener('click', getPrev);
+    //next.addEventListener('click', getNext);
+    //prev.addEventListener('click', getPrev);
+    $(next).on('click', getNext)
+    $(prev).on('click', getPrev)
   }
 
   function getNext() {
@@ -24,7 +28,8 @@
 
     // items are the array of [5 images]
     //document.getElementsByClassName('slider__photo')
-    items[slide].classList.remove('active');
+    //items[slide].classList.remove('active');
+    $('.slider__photo').eq(slide).removeClass('active');
 
     if (slide === totalItems - 1) {
       slide = 0;
@@ -39,7 +44,8 @@
 
   function getPrev() {
     // TODO      
-    items[slide].classList.remove('active');
+    //items[slide].classList.remove('active');
+    $('.slider__photo').eq(slide).removeClass('active');
 
     if (slide === 0) {
       slide = totalItems - 1;
