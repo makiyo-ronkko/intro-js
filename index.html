@@ -55,10 +55,14 @@
       $('[data-type="proteinbar"]').css("background-color", "blue");
     })
 
-    // printer
+    // print
+    $(function () {
+      $('.print').click(function () {
+        window.print();
+      });
+    });
 
-
-    //person-card first card to bold
+    //first word of the person-card's card text is to be bold
 
     $('.card-text').each(function () {
       var word = $(this).html();
@@ -69,7 +73,28 @@
       $(this).html('<span style="font-weight: bold">' + word.substring(0, index) + '</span>' + word.substring(index, word.length));
     });
 
+    // move Michael Lewiston to the first in the list
+    $(function () {
+      $('.person-card').eq(5).insertBefore($('.person-card').eq(0));
+    });
+
+    // change people headline & nav to green
+
+    $(document).ready(function () {
+      $('.navbar li a').eq(4).css("color", "green");
+    });
+
+    $(document).ready(function () {
+      $('.footer li a').eq(4).css("color", "green");
+    });
+
+
+    $(document).ready(function () {
+      $('#people h2').css("color", "green");
+    });
+
   </script>
+
   <header id="home" class="header">
     <nav class="nav" role="navigation">
       <div class="container nav-elements">
@@ -96,7 +121,8 @@
     <div class="container">
 
       <!-- #printer-->
-
+      <button onclick="window.print();">PRINT
+      </button>
 
       <div class="text-content">
         <h2 class="headline">Company History</h2>
