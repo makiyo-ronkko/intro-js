@@ -10,47 +10,90 @@
 
       $('#show').click(function () {
         // TODO: show theDiv element
+        $('#theDiv').show("slow");
+        $('#theDiv2').show("slow");
       });
 
       $('#hide').click(function () {
         // TODO: hide theDiv element
+        $('#theDiv').hide("slow");
+        $('#theDiv2').hide("slow");
       });
 
       $('#toggle').click(function () {
         // TODO: toggle hide/show theDiv Element
+        $('#theDiv').toggle();
+        $('#theDiv2').toggle();
       });
 
       $('#fadein').click(function () {
+        $('#theDiv').fadeIn();
+        $('#theDiv2').fadeIn();
         // TODO: fade the element in
       });
 
       $('#fadeout').click(function () {
         // TODO: fade the element out
+        $('#theDiv').fadeOut();
+        $('#theDiv2').fadeOut();
       });
 
       $('#fadeto3').click(function () {
         // TODO: fade theDiv to 30% opactity in 2 seconds
+        $('#theDiv').fadeTo(200, 0.3);
+        $('#theDiv2').fadeTo(200, 0.3);
       });
 
       $('#fadeup').click(function () {
         // TODO: fade theDiv element to 100% in 5 seconds
+        $('#theDiv').fadeTo(500, 1);
+        $('#theDiv2').fadeTo(500, 1);
       });
 
       $('#slideup').click(function () {
         // TODO: slide the element up
+        $('#theDiv').slideUp("slow");
+        $('#theDiv2').slideUp("slow");
       });
 
       $('#slidedown').click(function () {
         // TODO: fade the element down
+        $('#theDiv').slideDown("slow");
+        $('#theDiv2').slideDown("slow");
       });
 
       $('#pulse').click(function () {
         // TODO: fade the element to 10% then to 100% then to 10% then to 100% then to 1% then to 100%
+        $('#theDiv')
+          .fadeTo("slow", 0.1)
+          .fadeTo("slow", 1)
+          .fadeTo("slow", 0.1)
+          .fadeTo("slow", 1)
+          .fadeTo("slow", 0.01)
+          .fadeTo("slow", 1, clickPulsateButton); //keep clicking
+
+        $('#theDiv2')
+          .fadeTo("slow", 0.1)
+          .fadeTo("slow", 1)
+          .fadeTo("slow", 0.1)
+          .fadeTo("slow", 1)
+          .fadeTo("slow", 0.01)
+          .fadeTo("slow", 1, clickPulsateButton);
       });
 
       $('#all').click(function () {
         // TODO: animate element to the right, and increase font size to 200
         // call oncomplete function when animation is completed
+        $('#theDiv').animate({
+          right: '250px',
+          fontSize: '200px',
+          oncomplete
+        }),
+          $('#theDiv2').animate({
+            right: '250px',
+            fontSize: '200px',
+            oncomplete
+          });
       });
 
       $('#all').click(moveRight);
@@ -101,6 +144,12 @@
     function oncomplete() {
       alert('Animation complete');
     }
+
+    //keep clicking
+    function clickPulsateButton() {
+      $('#pulse').click();
+    }
+
   </script>
   <style type="text/css">
     #theDiv,
