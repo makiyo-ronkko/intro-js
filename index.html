@@ -85,18 +85,18 @@
         // TODO: animate element to the right, and increase font size to 200
         // call oncomplete function when animation is completed
         $('#theDiv').animate({
-          right: '250px',
-          fontSize: '200px',
-          oncomplete
+          left: '200px',
+          fontSize: '200px'
         }),
           $('#theDiv2').animate({
-            right: '250px',
-            fontSize: '200px',
-            oncomplete
+            left: '200px',
+            fontSize: '200px'
+
           });
       });
 
-      $('#all').click(moveRight);
+      $('#all').click(moveRight, oncomplete);
+
     });
 
     function basic() {
