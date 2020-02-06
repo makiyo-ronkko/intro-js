@@ -31,6 +31,13 @@
         e.preventDefault();
         $('html, body').animate({ scrollTop: 0 }, '300');
       });
+
+      /**
+      * A recursive function that fades the page logo to 10% visibility and back to 100%
+      */
+      //function animationComplete(){$('branding').fadeTo(300, 0.1).fadeTo(300, 1, animationComplete);}
+      // animationComplete();
+
     });
 
     //blink logo
@@ -94,16 +101,17 @@
     // change people headline & nav to green
 
     $(document).ready(function () {
-      $('.navbar li a').eq(4).css("color", "green");
+
+      $('.navbar li a').eq(4).text("personnel");
     });
 
     $(document).ready(function () {
-      $('.footer li a').eq(4).css("color", "green");
+      $('.footer li a').eq(4).text("personnel");
     });
 
 
     $(document).ready(function () {
-      $('#people h2').css("color", "green");
+      $('#people .headline').text("Personnel");
     });
 
   </script>
