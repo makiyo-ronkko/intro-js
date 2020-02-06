@@ -64,14 +64,27 @@
 
     //first word of the person-card's card text is to be bold
 
-    $('.card-text').each(function () {
-      var word = $(this).html();
-      var index = word.indexOf(' ');
-      if (index == -1) {
-        index = word.length;
+    $(document).ready(function () {
+      var all = $(".card-text");
+      for (var i = 0; i < all.length; i++) {
+        var html = $(all[i]).html();
+        var firstWord = html.split(" ")[0];
+        var boldFirstWord = "<b>" + firstWord + "</b>";
+        var newhtml = html.replace(firstWord, boldFirstWord);
+        $(all[i]).html(newhtml);
       }
-      $(this).html('<span style="font-weight: bold">' + word.substring(0, index) + '</span>' + word.substring(index, word.length));
-    });
+    })
+
+
+
+    //$('.card-text').each(function () {
+    //var word = $(this).html();
+    //var index = word.indexOf(' ');
+    //if (index == -1) {
+    //index = word.length;
+    //}
+    //$(this).html('<span style="font-weight: bold">' + word.substring(0, index) + '</span>' + word.substring(index, word.length));
+    //});
 
     // move Michael Lewiston to the first in the list
     $(function () {
