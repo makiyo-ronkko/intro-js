@@ -20,3 +20,7 @@ img:hover {
     /* Google Chrome, Safari 6+ & Opera 15+ */
 
 }
+
+form{
+    padding: 2rem;
+}

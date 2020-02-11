@@ -10,7 +10,7 @@ var flickrAPI = 'add-the-URL-here';
  * @return  {Void}      if images get rendered
  */
 function handleResponse(resp) {
-    console.log('The request has been completed'); 
+    console.log('The request has been completed');
     console.log(resp);
 
     if (resp.items.length === 0) {
@@ -38,9 +38,45 @@ function doAjaxCall(searchTerm) {
         format: 'json'
     };
 
-    $.getJSON( 
-        flickrAPI, 
+    $.getJSON(
+        flickrAPI,
         paramsForFlickr,
         handleResponse
     );
 }
+
+$(document).ready(function () {
+    $('[name="searchButton"]').click(function () {
+        alert('User has entered: ' + document.searchBar.searchQuery.value);
+
+        $.ajax({
+            url: '//api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?',
+            dataType: 'json',
+            data: { //parameters
+                tags: document.searchBar.searchQuery.value,
+                tagmode: 'any',// or
+                format: 'json'
+            }
+        }).done(function (data) {
+            console.log(data);
+            $('#imageWrapper').empty();
+
+            /*
+            $('#imageWrapper').append('<img src=' + data.items[0].media.m + '></img>') // media.m from arraly[0]'s media and m on console.log result 
+            */
+            /*
+            data.items.forEach(function (item) {
+            $('#imageWrapper').append('<img src=' + item.media.m + '></img>');
+            });
+            */
+            data.items.forEach(function (item) {
+                $('#imageWrapper').append(`<div class="col-md-3 col-sm-4 col-xs-6">
+                <img class="img-responsive" src="${item.media.m}">
+                </img>
+                </div>`
+                );
+            });
+        });
+
+    });
+});
