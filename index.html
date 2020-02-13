@@ -63,6 +63,7 @@
                 <option value="23">23</option>
                 <option value="24">24</option>
             </select>
+            <br>
             <label for="minute-music">Choose a minute:</label>
             <select id="minute-music">
                 <option value="00">00</option>
@@ -126,8 +127,14 @@
                 <option value="58">58</option>
                 <option value="59">59</option>
             </select>
+            <br>
+            <audio id="myAudio">
+                <source src="cartoon-birds-2_daniel-simion.mp3" type="audio/mpeg">
+            </audio>
 
-            <button>Click</button>
+            <button onclick="playAudio()" type="button">Guess Time</button>
+
+            <button onclick="pauseAudio()" type="button">Pause Audio</button>
         </div>
     </main>
 
