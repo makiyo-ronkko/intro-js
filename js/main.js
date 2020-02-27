@@ -16,11 +16,46 @@
 
   // popup1 visibility
 
-  function overlay() {
-    var overlay = document.getElementById("popup1");
-    overlay.style.visibility = "visible";
+  document.addEventListener(('mouseleave'), function () {
+    document.getElementById('popup1').style.visibility = 'visible';
+  });
+
+  /* function overlay() {
+    document.onmouseleave = function () {
+      popup1.style.visibility = "visible";
+    }
   }
-  overlay();
+  overlay(); */
+
+
+  /* document.getElementById('popup1').getElementsByClassName('close')[0].addEventListener('click', document.getElementById('popup1').style.visibility = 'hidden'); */
+
+  var popup1 = document.getElementById('popup1');
+  popup1.getElementsByClassName('close')[0].addEventListener('click', closePopup);
+  function closePopup() {
+    popup1.style.visibility = "hidden";
+  }
+
+  // When a click is detected on the submit button element
+  // get user input
+  // validate userinput as an email
+  // if it is valid, hide popup1, show popup2, otherwise, do nothing
+
+  document.getElementById('subscribe_popup').getElementsByClassName('button')[0].addEventListener('click', function () {
+    var userInput = 'email';
+    var validationResult = true;
+
+    if (validationResult === true) {
+      document.getElementById('popup1').style.visibility = 'hidden';
+      document.getElementById('popup2').style.visibility = 'visible';
+    }
+  });
+
+
+
+
+
+
 
   $('nav .dropdown').hover(function () {
     var $this = $(this);
