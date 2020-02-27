@@ -41,17 +41,50 @@
   // validate userinput as an email
   // if it is valid, hide popup1, show popup2, otherwise, do nothing
 
-  document.getElementById('subscribe_popup').getElementsByClassName('button')[0].addEventListener('click', function () {
-    var userInput = 'email';
-    var validationResult = true;
+  /**
+ * getEmail function looks under the form with name "subscribe"
+ * look under the "esubscribe_pemail" input field and returns the value of it
+ * returns nothing if no value is found 
+ *
+ * @returns [Boolean] true when valid, false otherwise
+ */
 
-    if (validationResult === true) {
+  function getEmail() {
+    if (typeof (document.subscribe.subscribe_pemail.value) === 'undefined') {
+      return '';
+    } else {
+      return document.subscribe.subscribe_pemail.value;
+    }
+  }
+
+  document.getElementById('subscribe_popup').getElementsByClassName('button')[0].addEventListener('click', function (_email) {
+
+    var _email = getEmail();
+    var email_regex1 = new RegExp('(?:[-!#-\'*+/-9=?A-Z^-~]+\.?(?:\.[-!#-\'*+/-9=?A-Z^-~]+)*|"(?:[!#-\[\]-~]|\\\\[\x09 -~])*")@[-!#-\'*+/-9=?A-Z^-~]+(?:\.[-!#-\'*+/-9=?A-Z^-~]+)*');
+    var email_regex2 = new RegExp('^[^\@]+\@[^\@]+$');
+    var popup2 = document.getElementById('popup2');
+
+    if (_email.match(email_regex1) && _email.match(email_regex2)) {
       document.getElementById('popup1').style.visibility = 'hidden';
       document.getElementById('popup2').style.visibility = 'visible';
+      popup2.getElementsByClassName('close')[0].addEventListener('click', closePopup2);
+      function closePopup2() {
+        popup2.style.visibility = "hidden";
+      }
+    } else {
+      alert('Your input is invalid.')
     }
   });
 
 
+
+  /* 
+  var userInput = 'email';
+    var validationResult = true;
+    if (validationResult === true) {
+    document.getElementById('popup1').style.visibility = 'hidden';
+    document.getElementById('popup2').style.visibility = 'visible';
+  } */
 
 
 
