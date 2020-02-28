@@ -76,8 +76,6 @@
     }
   });
 
-
-
   /* 
   var userInput = 'email';
     var validationResult = true;
@@ -85,6 +83,27 @@
     document.getElementById('popup1').style.visibility = 'hidden';
     document.getElementById('popup2').style.visibility = 'visible';
   } */
+
+  // popup3 to display
+
+  $('#popup-btn').click(function () {
+    $('#popup3').css('visibility', 'visible');
+  });
+
+  // popup3 to close
+
+  $(document).ready(function () {
+    var pageclose = $('#popup3 .popup');
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 100) {
+        pageclose.css('visibility', 'hidden');
+      } else {
+        pageclose.css('visibility', 'hidden');
+      }
+    });
+  });
+
+
 
 
 
