@@ -1,4 +1,20 @@
+
 $(function () {
+    var pathname = window.location.pathname;
+
+    $(document).on('view:Homepage', function () {
+        console.log('View on HomePage tracked');
+    });
+
+    if (pathname === '/index.html' || pathname === '/') {
+        $(document).trigger('view:HomePage');
+    }
+    if (pathname === '/detail.html' || pathname === '/') {
+        $(document).trigger('view:ProductPage');
+    }
+
+
+
 
     $('.shop-detail-carousel').owlCarousel({
         items: 1,
