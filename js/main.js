@@ -85,27 +85,39 @@
   } */
 
   // popup3 to display
-
-  $('#popup-btn').click(function () {
-    $('#popup3').css('visibility', 'visible');
-  });
+  /* 
+    $('#popup-btn').click(function () {
+      $('#popup3').css('visibility', 'visible');
+    });
+    
+      to check height of screen from top
+      $('#popup3 .popup').scrollTop() 
+      $('#popup3 .popup').height() 
+      $('#popup3 #dialog').height() 
+      */
 
   // popup3 to close
 
-  $(document).ready(function () {
-    var pageclose = $('#popup3 .popup');
-    $(window).scroll(function () {
-      if ($(this).scrollTop() > 100) {
-        pageclose.css('visibility', 'hidden');
-      } else {
-        pageclose.css('visibility', 'hidden');
-      }
-    });
+  $(document).on('mouseleave', function () {
+    $('#popup3').css('visibility', 'visible');
+  })
+
+  $('#popup3 .popup').on('scroll', function () {
+    console.log($('#popup3 .popup').scrollTop() + $('#popup3 .popup').height());
+    console.log($('#popup3 #dialog').height());
+    if ($('#popup3 .popup').scrollTop() + $('#popup3 .popup').height() <= $('#popup3 #dialog').height()) {
+      //display the close button of the popup3
+      $('#popup3 .close').css('visibility', 'visible');
+    }
   });
 
 
-
-
+  //close button of the popup3 is clicked hide popup3
+  $('#popup3 .close').on('click', function () {
+    $('#popup3').css('visibility', 'hidden');
+    $('#popup1').css('visibility', 'hidden');
+    $('#popup3 .close').css('visibility', 'hidden');
+  });
 
 
 
